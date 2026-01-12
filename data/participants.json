@@ -68,6 +68,107 @@
       ],
       "type": "self-upload",
       "ip": "127.0.0.1"
+    },
+    {
+      "id": "i878jriilmkbmwlar",
+      "email": "sal@mail.com",
+      "submitted_at": "2026-01-12T15:49:40.309096",
+      "files_count": 12,
+      "files": [
+        {
+          "original": "2512.07121v2.pdf",
+          "saved": "20260112_154940_289203_2512.07121v2.pdf",
+          "size": 1460030
+        },
+        {
+          "original": "boxell-et-al-2017-greater-internet-use-is-not-associated-with-faster-growth-in-political-polarization-among-us.pdf",
+          "saved": "20260112_154940_292726_boxell-et-al-2017-greater-internet-use-is-not-associated-with-faster-growth-in-political-polarization-among-us.pdf",
+          "size": 753849
+        },
+        {
+          "original": "Receipt-2578-1958-9263.pdf",
+          "saved": "20260112_154940_293483_Receipt-2578-1958-9263.pdf",
+          "size": 31175
+        },
+        {
+          "original": "science.adw3000.pdf",
+          "saved": "20260112_154940_296498_science.adw3000.pdf",
+          "size": 1065791
+        },
+        {
+          "original": "Rates_Resident-2025.pdf",
+          "saved": "20260112_154940_297821_Rates_Resident-2025.pdf",
+          "size": 177925
+        },
+        {
+          "original": "OpenMyBill.pdf",
+          "saved": "20260112_154940_300895_OpenMyBill.pdf",
+          "size": 1042421
+        },
+        {
+          "original": "Randazzo.pdf",
+          "saved": "20260112_154940_303236_Randazzo.pdf",
+          "size": 527624
+        },
+        {
+          "original": "Nonimmigrant_Visa_-_Confirmation_Page-1.pdf",
+          "saved": "20260112_154940_304213_Nonimmigrant_Visa_-_Confirmation_Page-1.pdf",
+          "size": 195069
+        },
+        {
+          "original": "rps_ai_survey_instrument.pdf",
+          "saved": "20260112_154940_304663_rps_ai_survey_instrument.pdf",
+          "size": 90953
+        },
+        {
+          "original": "Mehedi_letter.docx.pdf",
+          "saved": "20260112_154940_304990_Mehedi_letter.docx.pdf",
+          "size": 79991
+        },
+        {
+          "original": "20251014-statements-2097-.pdf",
+          "saved": "20260112_154940_305294_20251014-statements-2097-.pdf",
+          "size": 73846
+        },
+        {
+          "original": "ViewBillPdf_2.pdf",
+          "saved": "20260112_154940_308161_ViewBillPdf_2.pdf",
+          "size": 1012033
+        }
+      ],
+      "survey": {
+        "email": "sal@mail.com",
+        "zipCode": "10023",
+        "housingType": "single-family",
+        "householdSize": "2",
+        "incomeBracket": "25k-50k",
+        "utilityProvider": "pseg"
+      },
+      "type": "self-upload",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": "t2x9k2wiamkbn58lb",
+      "email": "sl@gmr.cu",
+      "submitted_at": "2026-01-12T15:55:11.341002",
+      "files_count": 1,
+      "files": [
+        {
+          "original": "b0e57d8e-28e8-4181-9cf6-94963953f872.jpeg",
+          "saved": "20260112_155511_340536_b0e57d8e-28e8-4181-9cf6-94963953f872.jpeg",
+          "size": 131153
+        }
+      ],
+      "survey": {
+        "email": "sl@gmr.cu",
+        "zipCode": "10283",
+        "housingType": "multi-family",
+        "householdSize": "3",
+        "incomeBracket": "50k-75k",
+        "utilityProvider": "ace"
+      },
+      "type": "self-upload",
+      "ip": "127.0.0.1"
     }
   ]
 }

@@ -8,41 +8,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --ink: #111;
-            --ink-light: #555;
-            --ink-muted: #888;
-            --surface: #fff;
-            --surface-alt: #fafaf9;
-            --border: #e8e8e6;
-            --accent: #c41e3a;
-            --accent-soft: rgba(196,30,58,0.06);
-            --success: #1a7f4f;
-            --font-serif: 'Source Serif 4', Georgia, serif;
-            --font-sans: 'Inter', -apple-system, sans-serif;
-        }
+        :root { --ink: #111; --ink-light: #555; --ink-muted: #888; --surface: #fff; --surface-alt: #fafaf9; --border: #e8e8e6; --accent: #c41e3a; --accent-soft: rgba(196,30,58,0.06); --success: #1a7f4f; --font-serif: 'Source Serif 4', Georgia, serif; --font-sans: 'Inter', -apple-system, sans-serif; }
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html { font-size: 16px; -webkit-font-smoothing: antialiased; }
         body { font-family: var(--font-sans); color: var(--ink); background: var(--surface); line-height: 1.6; }
         a { color: inherit; text-decoration: none; }
         button { font-family: inherit; cursor: pointer; border: none; background: none; }
-        input { font-family: inherit; }
-
+        input, select { font-family: inherit; }
         .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
         .page { display: none; min-height: 100vh; }
         .page.active { display: block; }
-
         header { border-bottom: 1px solid var(--border); padding: 16px 24px; position: sticky; top: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); z-index: 100; }
         .header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
         .logo { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 600; color: var(--accent); letter-spacing: -0.02em; }
         .logo span { color: var(--ink-muted); font-weight: 400; margin-left: 8px; font-size: 0.85rem; }
-
         .hero { padding: 80px 24px; text-align: center; }
         .badge { display: inline-block; background: var(--accent-soft); color: var(--accent); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; padding: 6px 14px; border-radius: 4px; margin-bottom: 24px; }
         h1 { font-family: var(--font-serif); font-size: clamp(2rem, 5vw, 3rem); font-weight: 400; line-height: 1.2; margin-bottom: 20px; letter-spacing: -0.02em; }
         h1 em { font-style: italic; color: var(--accent); }
         .subtitle { font-size: 1.1rem; color: var(--ink-light); max-width: 540px; margin: 0 auto 32px; }
-        
         .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; font-size: 0.95rem; font-weight: 500; border-radius: 6px; transition: all 0.2s; }
         .btn-primary { background: var(--ink); color: white; }
         .btn-primary:hover { background: #333; }
@@ -51,13 +35,10 @@
         .btn-secondary:hover { border-color: var(--ink); background: var(--surface-alt); }
         .btn svg { width: 18px; height: 18px; }
         .cta-note { margin-top: 16px; font-size: 0.85rem; color: var(--ink-muted); }
-	#page-consent .container, #page-upload .container { padding-bottom: 64px; }
-
         .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding: 48px 24px; background: var(--surface-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
         .stat { text-align: center; }
         .stat-value { font-family: var(--font-serif); font-size: 2.5rem; color: var(--ink); margin-bottom: 4px; }
         .stat-label { font-size: 0.8rem; color: var(--ink-muted); line-height: 1.4; }
-
         .section { padding: 64px 24px; }
         .section-title { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 24px; text-align: center; }
         .section p { color: var(--ink-light); max-width: 600px; margin: 0 auto 16px; text-align: center; }
@@ -65,27 +46,35 @@
         .card { padding: 28px; border: 1px solid var(--border); border-radius: 8px; }
         .card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
         .card p { font-size: 0.9rem; color: var(--ink-light); text-align: left; margin: 0; }
-
+        .map-section { padding: 64px 24px; background: var(--surface-alt); }
+        .map-container { max-width: 900px; margin: 0 auto; }
+        .map-container .section-title { margin-bottom: 16px; }
+        .map-description { text-align: center; color: var(--ink-light); margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .map-wrapper { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+        .map-image { width: 100%; height: auto; border-radius: 8px; }
+        .map-legend { display: flex; gap: 24px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
+        .legend-item { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--ink-light); }
+        .legend-dot { width: 12px; height: 12px; border-radius: 50%; }
+        .legend-dot.operational { background: #e74c3c; }
+        .legend-dot.planned { background: #f39c12; }
+        .map-note { text-align: center; font-size: 0.8rem; color: var(--ink-muted); margin-top: 16px; }
         .pi { display: flex; gap: 32px; align-items: flex-start; max-width: 600px; margin: 0 auto; text-align: left; }
         .pi-photo { width: 100px; height: 100px; background: var(--surface-alt); border-radius: 8px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: var(--ink-muted); border: 1px solid var(--border); }
         .pi-name { font-family: var(--font-serif); font-size: 1.25rem; margin-bottom: 2px; }
         .pi-title { color: var(--accent); font-weight: 500; font-size: 0.9rem; margin-bottom: 4px; }
         .pi-dept { color: var(--ink-muted); font-size: 0.85rem; margin-bottom: 12px; }
         .pi-bio { color: var(--ink-light); font-size: 0.9rem; margin: 0; text-align: left; }
-
         .cta-banner { background: var(--ink); color: white; padding: 64px 24px; text-align: center; }
         .cta-banner h2 { font-family: var(--font-serif); font-size: 1.75rem; margin-bottom: 12px; }
         .cta-banner p { opacity: 0.7; margin-bottom: 24px; }
         .cta-banner .btn-primary { background: white; color: var(--ink); }
         .cta-banner .btn-primary:hover { background: var(--surface-alt); }
-
         .page-header { padding: 48px 24px 32px; }
         .page-header h1 { font-size: 1.75rem; text-align: left; margin-bottom: 8px; }
         .page-header p { color: var(--ink-muted); text-align: left; margin: 0; }
         .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-muted); font-size: 0.9rem; margin-bottom: 24px; }
         .back-link:hover { color: var(--ink); }
         .back-link svg { width: 18px; height: 18px; }
-
         .consent-doc { background: var(--surface-alt); border: 1px solid var(--border); border-radius: 8px; padding: 32px; margin-bottom: 32px; }
         .consent-section { margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
         .consent-section:last-child { margin-bottom: 0; padding-bottom: 0; border: none; }
@@ -94,7 +83,6 @@
         .consent-section ul { margin: 12px 0; padding-left: 20px; }
         .consent-section li { font-size: 0.9rem; color: var(--ink-light); margin-bottom: 6px; position: relative; padding-left: 12px; }
         .consent-section li::before { content: ''; position: absolute; left: 0; top: 8px; width: 4px; height: 4px; background: var(--ink-muted); border-radius: 50%; }
-
         .checkbox-wrap { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 24px; cursor: pointer; }
         .checkbox-wrap input { display: none; }
         .checkbox-box { width: 22px; height: 22px; border: 2px solid var(--border); border-radius: 4px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
@@ -102,20 +90,17 @@
         .checkbox-box svg { width: 14px; height: 14px; stroke: white; opacity: 0; }
         .checkbox-wrap input:checked + .checkbox-box svg { opacity: 1; }
         .checkbox-label { font-size: 0.9rem; color: var(--ink-light); line-height: 1.5; }
-
-        .steps { display: flex; gap: 16px; overflow-x: auto; padding: 4px 0 16px; margin-bottom: 32px; }
-        .step { flex: 0 0 180px; padding: 20px; background: var(--surface-alt); border: 1px solid var(--border); border-radius: 8px; }
-        .step-num { width: 26px; height: 26px; background: var(--ink); color: white; font-size: 0.75rem; font-weight: 600; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
-        .step-img { aspect-ratio: 4/3; background: white; border: 1px dashed var(--border); border-radius: 6px; margin-bottom: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--ink-muted); font-size: 0.75rem; }
-        .step-img svg { width: 32px; height: 32px; margin-bottom: 4px; opacity: 0.4; }
-        .step p { font-size: 0.8rem; color: var(--ink-light); line-height: 1.4; margin: 0; }
-
+        .survey-form { background: var(--surface-alt); border: 1px solid var(--border); border-radius: 8px; padding: 32px; margin-bottom: 32px; }
+        .survey-form h2 { font-family: var(--font-serif); font-size: 1.25rem; margin-bottom: 8px; }
+        .survey-form > p { font-size: 0.9rem; color: var(--ink-muted); margin-bottom: 24px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
         .form-group { margin-bottom: 24px; }
         .form-group label { display: block; font-weight: 500; margin-bottom: 4px; }
         .form-hint { font-size: 0.85rem; color: var(--ink-muted); margin-bottom: 10px; }
-        input[type="email"] { width: 100%; padding: 12px 16px; border: 1px solid var(--border); border-radius: 6px; font-size: 1rem; transition: border-color 0.2s; }
-        input[type="email"]:focus { outline: none; border-color: var(--ink); }
-
+        input[type="email"], input[type="text"], select { width: 100%; padding: 12px 16px; border: 1px solid var(--border); border-radius: 6px; font-size: 1rem; transition: border-color 0.2s; background: white; }
+        input[type="email"]:focus, input[type="text"]:focus, select:focus { outline: none; border-color: var(--ink); }
+        select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; }
         .upload-zone { border: 2px dashed var(--border); border-radius: 8px; padding: 48px 24px; text-align: center; cursor: pointer; transition: all 0.2s; }
         .upload-zone:hover { border-color: var(--ink-muted); background: var(--surface-alt); }
         .upload-zone.dragover { border-color: var(--ink); background: var(--accent-soft); }
@@ -124,7 +109,6 @@
         .upload-zone .main-text { font-weight: 500; }
         .upload-zone .sub-text { font-size: 0.85rem; color: var(--ink-muted); margin-top: 4px; }
         .upload-zone .formats { font-size: 0.75rem; color: var(--ink-muted); background: var(--surface-alt); padding: 4px 12px; border-radius: 4px; display: inline-block; margin-top: 12px; }
-
         .file-counter { margin-top: 20px; }
         .counter-bar { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
         .counter-fill { height: 100%; background: var(--ink); transition: width 0.3s; }
@@ -132,7 +116,6 @@
         .counter-text { display: flex; justify-content: space-between; margin-top: 8px; font-size: 0.85rem; }
         .counter-text strong { font-weight: 600; }
         .counter-hint { color: var(--ink-muted); }
-
         .file-list { margin-top: 16px; }
         .file-item { display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--surface-alt); border-radius: 6px; margin-bottom: 8px; }
         .file-icon { width: 36px; height: 36px; background: white; border-radius: 4px; display: flex; align-items: center; justify-content: center; }
@@ -143,12 +126,10 @@
         .file-remove { width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; border-radius: 4px; color: var(--ink-muted); }
         .file-remove:hover { background: rgba(196,30,58,0.1); color: var(--accent); }
         .file-remove svg { width: 16px; height: 16px; }
-
         .divider { display: flex; align-items: center; gap: 16px; margin: 32px 0; }
         .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
         .divider span { font-size: 0.85rem; color: var(--ink-muted); }
-
-	.help-card { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-bottom: 64px; }
+        .help-card { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-bottom: 64px; }
         .help-header { display: flex; align-items: center; gap: 16px; padding: 20px; cursor: pointer; }
         .help-header:hover { background: var(--surface-alt); }
         .help-icon { width: 44px; height: 44px; background: var(--surface-alt); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
@@ -161,37 +142,35 @@
         .help-card.open .help-chevron { transform: rotate(180deg); }
         .help-body { display: none; padding: 0 20px 20px; }
         .help-card.open .help-body { display: block; }
-
         .btn-submit { width: 100%; justify-content: center; margin-top: 8px; }
         .btn-submit.loading .btn-text { display: none; }
         .btn-submit .btn-loading { display: none; }
         .btn-submit.loading .btn-loading { display: flex; align-items: center; gap: 8px; }
         @keyframes spin { to { transform: rotate(360deg); } }
         .spinner { animation: spin 1s linear infinite; }
-
         .thanks { display: flex; align-items: center; justify-content: center; min-height: 70vh; text-align: center; padding: 48px 24px; }
         .thanks-icon { color: var(--success); margin-bottom: 24px; }
         .thanks-icon svg { width: 72px; height: 72px; }
         .thanks h1 { font-size: 2rem; margin-bottom: 12px; }
-        .thanks p { color: var(--ink-light); max-width: 400px; margin: 0 auto 32px; }
-        .thanks-info { background: var(--surface-alt); border-radius: 8px; padding: 24px; max-width: 400px; margin: 0 auto 32px; text-align: left; }
+        .thanks > div > p { color: var(--ink-light); max-width: 400px; margin: 0 auto 32px; }
+        .thanks-info { background: var(--surface-alt); border-radius: 8px; padding: 24px; max-width: 450px; margin: 0 auto 32px; text-align: left; }
         .thanks-item { display: flex; align-items: center; gap: 12px; padding: 10px 0; font-size: 0.9rem; }
-        .thanks-item:first-child { border-bottom: 1px solid var(--border); }
+        .thanks-item:not(:last-child) { border-bottom: 1px solid var(--border); }
         .thanks-item svg { width: 20px; height: 20px; color: var(--ink-muted); flex-shrink: 0; }
-
+        .followup-section { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 24px; max-width: 450px; margin: 0 auto 32px; text-align: left; }
+        .followup-section h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+        .followup-section > p { font-size: 0.85rem; color: var(--ink-muted); margin-bottom: 16px; }
+        .followup-section .checkbox-wrap { margin-bottom: 16px; }
+        .followup-section .form-group { margin-bottom: 16px; }
+        .followup-success { padding: 12px 16px; background: rgba(26, 127, 79, 0.08); border-radius: 6px; color: var(--success); font-size: 0.9rem; text-align: center; display: none; }
+        .followup-success.show { display: block; }
+        #page-consent .container, #page-survey .container, #page-upload .container { padding-bottom: 64px; }
         footer { border-top: 1px solid var(--border); padding: 32px 24px; margin-top: auto; }
         .footer-inner { max-width: 720px; margin: 0 auto; display: flex; justify-content: space-between; gap: 24px; font-size: 0.8rem; color: var(--ink-muted); }
         footer a { text-decoration: underline; }
+        @media (max-width: 768px) { .stats { grid-template-columns: 1fr; gap: 16px; } .pi { flex-direction: column; align-items: center; text-align: center; } .pi-bio { text-align: center; } .footer-inner { flex-direction: column; text-align: center; } .map-legend { flex-direction: column; align-items: center; gap: 12px; } }
 
-        @media (max-width: 768px) {
-            .stats { grid-template-columns: 1fr; gap: 16px; }
-            .pi { flex-direction: column; align-items: center; text-align: center; }
-            .pi-bio { text-align: center; }
-            .footer-inner { flex-direction: column; text-align: center; }
-        }
-
-	/* Gallery Steps */
-.steps-gallery { display: flex; gap: 12px; overflow-x: auto; padding: 4px 0 16px; margin-bottom: 24px; }
+	.steps-gallery { display: flex; gap: 12px; overflow-x: auto; padding: 4px 0 16px; margin-bottom: 24px; }
 .step-thumb { flex: 0 0 140px; cursor: pointer; transition: transform 0.2s; }
 .step-thumb:hover { transform: translateY(-2px); }
 .step-thumb .step-num { width: 26px; height: 26px; background: var(--ink); color: white; font-size: 0.75rem; font-weight: 600; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 8px; }
@@ -217,182 +196,123 @@
     </style>
 </head>
 <body>
-    <header>
-        <div class="header-inner">
-            <div class="logo">RUTGERS <span>School of Communication & Information</span></div>
-        </div>
-    </header>
+    <header><div class="header-inner"><div class="logo">RUTGERS <span>School of Communication & Information</span></div></div></header>
 
     <div id="page-landing" class="page active">
         <div class="hero">
             <div class="badge">Research Study</div>
             <h1>How AI Data Centers<br><em>Impact Your Electric Bill</em></h1>
             <p class="subtitle">A groundbreaking study measuring the real economic impact of data center expansion on New Jersey households.</p>
-            <button class="btn btn-primary" onclick="goTo('consent')">
-                Participate in Study
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </button>
+            <button class="btn btn-primary" onclick="goTo('consent')">Participate in Study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
             <p class="cta-note">15 minutes · $15 gift card compensation</p>
         </div>
-
         <div class="stats">
-            <div class="stat">
-                <div class="stat-value">2×</div>
-                <div class="stat-label">Projected increase in data center electricity by 2026</div>
-            </div>
-            <div class="stat">
-                <div class="stat-value">8%</div>
-                <div class="stat-label">Of U.S. electricity could go to data centers by 2030</div>
-            </div>
-            <div class="stat">
-                <div class="stat-value">0</div>
-                <div class="stat-label">Studies measuring direct impact on household bills</div>
+            <div class="stat"><div class="stat-value">2×</div><div class="stat-label">Projected increase in data center electricity by 2026</div></div>
+            <div class="stat"><div class="stat-value">8%</div><div class="stat-label">Of U.S. electricity could go to data centers by 2030</div></div>
+            <div class="stat"><div class="stat-value">0</div><div class="stat-label">Studies measuring direct impact on household bills</div></div>
+        </div>
+        <div class="map-section">
+            <div class="map-container">
+                <h2 class="section-title">Data Centers in Your Backyard</h2>
+                <p class="map-description">The tri-state area has become a major hub for data center development. See how close these facilities are to your community.</p>
+                <div class="map-wrapper">
+                    <img src="/static/datacenter-map.png" alt="Map of data centers in NJ and tri-state area" class="map-image" onerror="this.style.display='none'">
+                    <div class="map-legend">
+                        <div class="legend-item"><div class="legend-dot operational"></div><span>Operational data centers</span></div>
+                        <div class="legend-item"><div class="legend-dot planned"></div><span>Planned / Under construction</span></div>
+                    </div>
+                    <p class="map-note">Source: Data Center Map, 2024</p>
+                </div>
             </div>
         </div>
-
         <div class="section">
             <h2 class="section-title">The Challenge</h2>
             <p>The AI revolution has created unprecedented demand for computing power, straining regional power grids and threatening electricity affordability for millions of Americans.</p>
             <div class="cards">
-                <div class="card">
-                    <h3>Unprecedented Growth</h3>
-                    <p>Data center electricity demand is projected to double globally by 2026, driven by AI workloads.</p>
-                </div>
-                <div class="card">
-                    <h3>Grid Strain</h3>
-                    <p>This massive, concentrated new load threatens stability and affordability of regional power systems.</p>
-                </div>
-                <div class="card">
-                    <h3>Policy Gap</h3>
-                    <p>No one is measuring the real-world impact on monthly bills—policymakers are flying blind.</p>
-                </div>
+                <div class="card"><h3>Unprecedented Growth</h3><p>Data center electricity demand is projected to double globally by 2026, driven by AI workloads.</p></div>
+                <div class="card"><h3>Grid Strain</h3><p>This massive, concentrated new load threatens stability and affordability of regional power systems.</p></div>
+                <div class="card"><h3>Policy Gap</h3><p>No one is measuring the real-world impact on monthly bills—policymakers are flying blind.</p></div>
             </div>
         </div>
-
         <div class="section" style="background: var(--surface-alt);">
             <h2 class="section-title">Team</h2>
             <div class="pi">
                 <div class="pi-photo">
-                    <!--svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="40" height="40"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg-->
-		        <img src="https://kiran-research2.comminfo.rutgers.edu/kiran_img.jpg" alt="Kiran Garimella" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
-                </div>
-                <div>
-                    <div class="pi-name">Kiran Garimella, Ph.D.</div>
-                    <div class="pi-title">Assistant Professor</div>
-                    <div class="pi-dept">School of Communication & Information, Rutgers University</div>
-                    <p class="pi-bio">Dr. Garimella's research focuses on computational social science, examining the intersection of technology, policy, and society.</p>
-                </div>
+			<!--svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="40" height="40"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg-->
+			    <img src="https://kiran-research2.comminfo.rutgers.edu/kiran_img.jpg" alt="Kiran Garimella" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+		</div>
+                <div><div class="pi-name">Kiran Garimella, Ph.D.</div><div class="pi-title">Assistant Professor</div><div class="pi-dept">School of Communication & Information, Rutgers University</div><p class="pi-bio">Kiran's research focuses on computational social science, examining the intersection of technology, policy, and society.</p></div>
             </div>
             <div class="pi">
                 <div class="pi-photo">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="40" height="40"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>
-                </div>
-                <div>
-                    <div class="pi-name">Kaitlyn Rich.</div>
-                    <div class="pi-title">PhD student</div>
-                    <div class="pi-dept">School of Communication & Information, Rutgers University</div>
-		    <p class="pi-bio">.....</p>
-                </div>
+			    <img src="https://sci.rutgers.edu/sites/default/files/styles/1x1_half_1024_2x/public/kaitlyn-rich.jpg?itok=5HSm08rx" alt="Kaitlyn Rich" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+		</div>
+                <div><div class="pi-name">Kaitlyn Rich.</div><div class="pi-title">PhD Student</div><div class="pi-dept">School of Communication & Information, Rutgers University</div><p class="pi-bio">Kaitlyn's research focuses on how both environment and material influence our understanding of memory and place.</p></div>
             </div>
-
 
         </div>
         <div class="cta-banner">
             <h2>Ready to Make a Difference?</h2>
             <p>Your electricity bills can help shape energy policy that protects NJ families.</p>
-            <button class="btn btn-primary" onclick="goTo('consent')">
-                Begin Participation
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </button>
+            <button class="btn btn-primary" onclick="goTo('consent')">Begin Participation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
         </div>
     </div>
 
     <div id="page-consent" class="page">
         <div class="container">
             <div class="page-header">
-                <a href="#" class="back-link" onclick="goTo('landing'); return false;">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-                    Back
-                </a>
+                <a href="#" class="back-link" onclick="goTo('landing'); return false;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back</a>
                 <h1>Research Consent Form</h1>
                 <p>Please review the following information carefully.</p>
             </div>
-
             <div class="consent-doc">
-                <div class="consent-section">
-                    <h2>Study Title</h2>
-                    <p>Impact of AI Data Center Expansion on Residential Electricity Prices in New Jersey</p>
-                </div>
-                <div class="consent-section">
-                    <h2>Principal Investigator</h2>
-                    <p>Kiran Garimella, Ph.D.<br>Assistant Professor, School of Communication & Information<br>Rutgers, The State University of New Jersey</p>
-                </div>
-                <div class="consent-section">
-                    <h2>Purpose</h2>
-                    <p>This study examines how AI data center expansion affects residential electricity prices in New Jersey. By analyzing actual utility bills, we aim to provide empirical evidence for energy policy decisions.</p>
-                </div>
-                <div class="consent-section">
-                    <h2>What You Will Do</h2>
-                    <p>If you agree to participate:</p>
-                    <ul>
-                        <li>Download your electricity bills from the past 12-24 months from your utility provider</li>
-                        <li>Upload these bills through our secure portal</li>
-                        <li>Provide an email address for compensation only</li>
-                    </ul>
-                    <p>The process takes approximately 15 minutes.</p>
-                </div>
-                <div class="consent-section">
-                    <h2>Compensation</h2>
-                    <p>You will receive a $15 Mastercard gift card sent to your email within 2 weeks of submission.</p>
-                </div>
-                <div class="consent-section">
-                    <h2>Risks & Benefits</h2>
-                    <p><strong>Risks:</strong> Minimal. Your bills contain address and usage information, kept strictly confidential.</p>
-                    <p><strong>Benefits:</strong> Your participation contributes to research that may help protect consumers from unfair pricing.</p>
-                </div>
-                <div class="consent-section">
-                    <h2>Confidentiality</h2>
-                    <p>All data is kept confidential. Your email is stored separately from utility data. All identifying information is removed before analysis. Data is stored on secure, encrypted servers.</p>
-                </div>
-                <div class="consent-section">
-                    <h2>Voluntary Participation</h2>
-                    <p>Participation is entirely voluntary. You may withdraw at any time by contacting the research team.</p>
-                </div>
-                <div class="consent-section">
-                    <h2>Contact</h2>
-                    <p>Questions about the study: kiran.garimella@rutgers.edu</p>
-                    <p>Questions about your rights: humansubjects@ored.rutgers.edu</p>
-                </div>
+                <div class="consent-section"><h2>Study Title</h2><p>Impact of AI Data Center Expansion on Residential Electricity Prices in New Jersey</p></div>
+                <div class="consent-section"><h2>Principal Investigator</h2><p>Kiran Garimella, Ph.D.<br>Assistant Professor, School of Communication & Information<br>Rutgers, The State University of New Jersey</p></div>
+                <div class="consent-section"><h2>Purpose</h2><p>This study examines how AI data center expansion affects residential electricity prices in New Jersey. By analyzing actual utility bills, we aim to provide empirical evidence for energy policy decisions.</p></div>
+                <div class="consent-section"><h2>What You Will Do</h2><p>If you agree to participate:</p><ul><li>Complete a brief demographic survey (zip code, housing type, income bracket)</li><li>Download your electricity bills from the past 12-24 months from your utility provider</li><li>Upload these bills through our secure portal</li><li>Provide an email address for compensation only</li></ul><p>The process takes approximately 15 minutes.</p></div>
+                <div class="consent-section"><h2>Compensation</h2><p>You will receive a $15 Mastercard gift card sent to your email within 2 weeks of submission.</p></div>
+                <div class="consent-section"><h2>Risks & Benefits</h2><p><strong>Risks:</strong> Minimal. Your bills contain address and usage information, kept strictly confidential.</p><p><strong>Benefits:</strong> Your participation contributes to research that may help protect consumers from unfair pricing.</p></div>
+                <div class="consent-section"><h2>Confidentiality</h2><p>All data is kept confidential. Your email is stored separately from utility data. All identifying information is removed before analysis. Data is stored on secure, encrypted servers.</p></div>
+                <div class="consent-section"><h2>Voluntary Participation</h2><p>Participation is entirely voluntary. You may withdraw at any time by contacting the research team.</p></div>
+                <div class="consent-section"><h2>Contact</h2><p>Questions about the study: kiran.garimella@rutgers.edu</p><p>Questions about your rights: humansubjects@ored.rutgers.edu</p></div>
             </div>
+            <label class="checkbox-wrap"><input type="checkbox" id="consent-check" onchange="updateConsentBtn()"><span class="checkbox-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span><span class="checkbox-label">I have read and understood the above information. I am 18 years or older and a New Jersey resident. I voluntarily agree to participate.</span></label>
+            <button class="btn btn-primary" id="consent-btn" disabled onclick="goTo('survey')">Continue to Survey <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        </div>
+    </div>
 
-            <label class="checkbox-wrap">
-                <input type="checkbox" id="consent-check" onchange="updateConsentBtn()">
-                <span class="checkbox-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
-                </span>
-                <span class="checkbox-label">I have read and understood the above information. I am 18 years or older and a New Jersey resident. I voluntarily agree to participate.</span>
-            </label>
-
-            <button class="btn btn-primary" id="consent-btn" disabled onclick="goTo('upload')">
-                Continue to Study
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </button>
+    <div id="page-survey" class="page">
+        <div class="container">
+            <div class="page-header">
+                <a href="#" class="back-link" onclick="goTo('consent'); return false;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back</a>
+                <h1>Demographic Survey</h1>
+                <p>Help us understand how electricity costs affect different households.</p>
+            </div>
+            <div class="survey-form">
+                <h2>About Your Household</h2>
+                <p>This information helps us analyze electricity cost impacts across different communities. All responses are confidential.</p>
+		<div class="form-group"><label for="survey-email">Email Address *</label><p class="form-hint">Used to send your $15 gift card and link your responses.</p><input type="email" id="survey-email" required placeholder="your.email@example.com" oninput="validateSurvey()"></div>
+                <div class="form-group"><label for="zip-code">ZIP Code *</label><p class="form-hint">Your New Jersey ZIP code</p><input type="text" id="zip-code" pattern="[0-9]{5}" maxlength="5" placeholder="07102" required oninput="validateSurvey()"></div>
+                <div class="form-row">
+                    <div class="form-group"><label for="housing-type">Housing Type *</label><select id="housing-type" required onchange="validateSurvey()"><option value="">Select...</option><option value="single-family">Single-family home</option><option value="townhouse">Townhouse / Row house</option><option value="apartment">Apartment / Condo</option><option value="multi-family">Multi-family home</option><option value="mobile">Mobile home</option><option value="other">Other</option></select></div>
+                    <div class="form-group"><label for="household-size">Household Size *</label><select id="household-size" required onchange="validateSurvey()"><option value="">Select...</option><option value="1">1 person</option><option value="2">2 people</option><option value="3">3 people</option><option value="4">4 people</option><option value="5+">5 or more people</option></select></div>
+                </div>
+                <div class="form-group"><label for="income-bracket">Household Income (optional)</label><p class="form-hint">Annual household income before taxes</p><select id="income-bracket"><option value="">Prefer not to say</option><option value="under-25k">Under $25,000</option><option value="25k-50k">$25,000 - $49,999</option><option value="50k-75k">$50,000 - $74,999</option><option value="75k-100k">$75,000 - $99,999</option><option value="100k-150k">$100,000 - $149,999</option><option value="150k-200k">$150,000 - $199,999</option><option value="over-200k">$200,000 or more</option></select></div>
+                <div class="form-group"><label for="utility-provider">Utility Provider *</label><select id="utility-provider" required onchange="validateSurvey()"><option value="">Select...</option><option value="pseg">PSE&G</option><option value="jcpl">JCP&L (Jersey Central Power & Light)</option><option value="ace">Atlantic City Electric</option><option value="rockland">Orange & Rockland</option><option value="other">Other</option></select></div>
+            </div>
+            <button class="btn btn-primary" id="survey-btn" disabled onclick="goTo('upload')">Continue to Upload <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
         </div>
     </div>
 
     <div id="page-upload" class="page">
         <div class="container">
             <div class="page-header">
-                <a href="#" class="back-link" onclick="goTo('consent'); return false;">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-                    Back
-                </a>
+                <a href="#" class="back-link" onclick="goTo('survey'); return false;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back</a>
                 <h1>Upload Your Electricity Bills</h1>
                 <p>Follow the steps below to download and upload your bills.</p>
             </div>
-
-	    <h3 style="font-size: 1rem; margin-bottom: 16px;">How to Download Your Bills</h3>
-<p class="form-hint" style="margin-bottom: 16px;">Click on any step to view larger</p>
+            <h3 style="font-size: 1rem; margin-bottom: 16px;">How to Download Your Bills</h3>
+	    <p class="form-hint" style="margin-bottom: 16px;">Note: These steps are for PSE&G. Your steps might vary depending on your provider. Click on any step to view larger</p>
 <div class="steps-gallery">
     <div class="step-thumb" onclick="openGallery(0)">
         <div class="step-num">1</div>
@@ -429,115 +349,33 @@
     <div class="lightbox-dots" id="lightbox-dots"></div>
 </div>
 
-            <!--h3 style="font-size: 1rem; margin-bottom: 16px;">How to Download Your Bills</h3>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-num">1</div>
-                    <div class="step-img">
-			    <img src="https://kiran-research2.comminfo.rutgers.edu/nj-energy-study/templates/step1.png" alt="Step 1" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
-                        Step 1
-                    </div>
-		    <p>Log in to your PSE&G account at <a href="https://nj.pseg.com" target="_blank">nj.pseg.com</a></p>
-                </div>
-                <div class="step">
-                    <div class="step-num">2</div>
-                    <div class="step-img">
-			    <img src="https://kiran-research2.comminfo.rutgers.edu/nj-energy-study/templates/step2.png" alt="Step 1" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
-                        Step 2
-                    </div>
-                    <p>Click on "Bill Details"</p>
-                </div>
-                <div class="step">
-                    <div class="step-num">3</div>
-                    <div class="step-img">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-                        Image 3
-                    </div>
-                    <p>Select "View Bill" or "Download PDF"</p>
-                </div>
-                <div class="step">
-                    <div class="step-num">4</div>
-                    <div class="step-img">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-                        Image 4
-                    </div>
-                    <p>Download bills for past 12-24 months</p>
-                </div>
-                <div class="step">
-                    <div class="step-num">5</div>
-                    <div class="step-img">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-                        Image 5
-                    </div>
-                    <p>Save all files, then upload below</p>
-                </div>
-            </div-->
-
             <form id="upload-form" onsubmit="submitForm(event)">
-                <div class="form-group">
-                    <label>Email Address</label>
-                    <p class="form-hint">Used only to send your $15 gift card.</p>
-                    <input type="email" id="email-input" required placeholder="your.email@example.com" oninput="validateForm()">
-                </div>
-
+                <!--div class="form-group"><label>Email Address</label><p class="form-hint">Used only to send your $15 gift card.</p><input type="email" id="email-input" required placeholder="your.email@example.com" oninput="validateForm()"></div-->
                 <div class="form-group">
                     <label>Upload Your Bills</label>
-                    <p class="form-hint">Drag and drop or click to select. We recommend at least 12 months of bills.</p>
-                    
+                    <p class="form-hint">Drag and drop or click to select. We recommend uploading 12-24 months of bills.</p>
                     <div class="upload-zone" id="upload-zone" onclick="document.getElementById('file-input').click()">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17,8 12,3 7,8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
                         <p class="main-text">Drag & drop files here</p>
                         <p class="sub-text">or click to browse</p>
-                        <span class="formats">PDF, JPG, PNG accepted</span>
+                        <span class="formats">PDF, JPG, PNG accepted · Max 10MB per file</span>
                     </div>
-                    <input type="file" id="file-input" multiple accept=".pdf,.jpg,.jpeg,.png,.gif,.webp" hidden onchange="handleFiles(this.files)">
-
-                    <div class="file-counter">
-                        <div class="counter-bar"><div class="counter-fill" id="counter-fill"></div></div>
-                        <div class="counter-text">
-                            <span><strong id="file-count">0</strong> files selected</span>
-                            <span class="counter-hint" id="counter-hint">Add at least 12 for best results</span>
-                        </div>
-                    </div>
+                    <input type="file" id="file-input" multiple accept=".pdf,.jpg,.jpeg,.png" hidden onchange="handleFiles(this.files)">
+                    <div class="file-counter"><div class="counter-bar"><div class="counter-fill" id="counter-fill"></div></div><div class="counter-text"><span><strong id="file-count">0</strong> files selected</span><span class="counter-hint" id="counter-hint">Add 12-24 files for best results</span></div></div>
                     <div class="file-list" id="file-list"></div>
                 </div>
-
-                <button type="submit" class="btn btn-primary btn-submit" id="submit-btn" disabled>
-                    <span class="btn-text">Submit Bills</span>
-                    <span class="btn-loading">
-                        <svg class="spinner" width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" fill="none" stroke-dasharray="60" stroke-dashoffset="20"/></svg>
-                        Uploading...
-                    </span>
-                </button>
+                <button type="submit" class="btn btn-primary btn-submit" id="submit-btn" disabled><span class="btn-text">Submit Bills</span><span class="btn-loading"><svg class="spinner" width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" fill="none" stroke-dasharray="60" stroke-dashoffset="20"/></svg>Uploading...</span></button>
             </form>
-
             <div class="divider"><span>or</span></div>
-
             <div class="help-card" id="help-card">
                 <div class="help-header" onclick="toggleHelp()">
-                    <div class="help-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-                    </div>
-                    <div class="help-text">
-                        <h3>Need help participating?</h3>
-                        <p>Request a Zoom call with our team for guided assistance.</p>
-                    </div>
-                    <div class="help-chevron">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-                    </div>
+                    <div class="help-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+                    <div class="help-text"><h3>Need help participating?</h3><p>Request a Zoom call with our team for guided assistance.</p></div>
+                    <div class="help-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
                 </div>
                 <div class="help-body">
-                    <label class="checkbox-wrap">
-                        <input type="checkbox" id="help-consent" onchange="updateHelpBtn()">
-                        <span class="checkbox-box">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
-                        </span>
-                        <span class="checkbox-label">I consent to be contacted via email to schedule a Zoom call with the research team.</span>
-                    </label>
-                    <div class="form-group">
-                        <label>Email Address</label>
-                        <input type="email" id="help-email" placeholder="your.email@example.com" oninput="updateHelpBtn()">
-                    </div>
+                    <label class="checkbox-wrap"><input type="checkbox" id="help-consent" onchange="updateHelpBtn()"><span class="checkbox-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span><span class="checkbox-label">I consent to be contacted via email to schedule a Zoom call with the research team.</span></label>
+                    <div class="form-group"><label>Email Address</label><input type="email" id="help-email" placeholder="your.email@example.com" oninput="updateHelpBtn()"></div>
                     <button class="btn btn-secondary" id="help-btn" disabled onclick="submitHelp()">Request Assistance</button>
                 </div>
             </div>
@@ -547,190 +385,124 @@
     <div id="page-thanks" class="page">
         <div class="thanks">
             <div>
-                <div class="thanks-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
-                </div>
+                <div class="thanks-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg></div>
                 <h1>Thank You</h1>
                 <p>Your contribution is invaluable. Together, we're building evidence to protect New Jersey families.</p>
                 <div class="thanks-info">
-                    <div class="thanks-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-                        <span>Your $15 gift card will arrive within 2 weeks</span>
-                    </div>
-                    <div class="thanks-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                        <span>Check the email address you provided</span>
-                    </div>
+                    <div class="thanks-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span>Your $15 gift card will arrive within 2 weeks</span></div>
+                    <div class="thanks-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>Check the email address you provided</span></div>
                 </div>
-                <a href="https://comminfo.rutgers.edu" target="_blank" class="btn btn-secondary">
-                    Visit SC&I Website
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-                </a>
+                <div class="followup-section" id="followup-section">
+                    <h3>Interested in a Follow-up Interview?</h3>
+                    <p>We may conduct brief follow-up interviews to better understand your experience with electricity costs. Would you be interested?</p>
+                    <label class="checkbox-wrap"><input type="checkbox" id="followup-check" onchange="updateFollowupBtn()"><span class="checkbox-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span><span class="checkbox-label">Yes, I'm interested in being contacted for a follow-up interview (15-20 minutes, additional $20 compensation).</span></label>
+                    <div class="form-group" id="followup-email-group" style="display:none;"><label>Preferred Contact Email</label><input type="email" id="followup-email" placeholder="your.email@example.com" oninput="updateFollowupBtn()"></div>
+                    <button class="btn btn-secondary" id="followup-btn" style="display:none;" onclick="submitFollowup()">Submit Interest</button>
+                </div>
+                <div class="followup-success" id="followup-success">Thank you! We'll be in touch if selected for an interview.</div>
+                <a href="https://comminfo.rutgers.edu" target="_blank" class="btn btn-secondary">Visit SC&I Website <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></a>
             </div>
         </div>
     </div>
 
-    <footer>
-        <div class="footer-inner">
-            <div>School of Communication & Information<br>Rutgers, The State University of New Jersey</div>
-            <div>Questions? <a href="mailto:kiran.garimella@rutgers.edu">kiran.garimella@rutgers.edu</a><br>IRB Protocol #[XXXXX]</div>
-        </div>
-    </footer>
+    <footer><div class="footer-inner"><div>School of Communication & Information<br>Rutgers, The State University of New Jersey</div><div>Questions? <a href="mailto:kiran.garimella@rutgers.edu">kiran.garimella@rutgers.edu</a><br>IRB Protocol #[XXXXX]</div></div></footer>
 
     <script>
-        function goTo(page) {
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.getElementById('page-' + page).classList.add('active');
-            window.scrollTo(0, 0);
-        }
-
-        function updateConsentBtn() {
-            document.getElementById('consent-btn').disabled = !document.getElementById('consent-check').checked;
-        }
-
+        function goTo(page) { document.querySelectorAll('.page').forEach(p => p.classList.remove('active')); document.getElementById('page-' + page).classList.add('active'); window.scrollTo(0, 0); }
+        function updateConsentBtn() { document.getElementById('consent-btn').disabled = !document.getElementById('consent-check').checked; }
+//        function validateSurvey() { const zip = document.getElementById('zip-code').value; const housing = document.getElementById('housing-type').value; const size = document.getElementById('household-size').value; const utility = document.getElementById('utility-provider').value; document.getElementById('survey-btn').disabled = !(zip.length === 5 && /^[0-9]+$/.test(zip) && housing && size && utility); }
+	function validateSurvey() { const email = document.getElementById('survey-email'); const zip = document.getElementById('zip-code').value; const housing = document.getElementById('housing-type').value; const size = document.getElementById('household-size').value; const utility = document.getElementById('utility-provider').value; document.getElementById('survey-btn').disabled = !(email.value && email.checkValidity() && zip.length === 5 && /^[0-9]+$/.test(zip) && housing && size && utility); }
         let files = [];
         const participantId = Math.random().toString(36).substr(2, 9) + Date.now().toString(36);
-
+        const MAX_FILE_SIZE = 10 * 1024 * 1024;
+        const TARGET_FILES = 24;
         const zone = document.getElementById('upload-zone');
         zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('dragover'); });
         zone.addEventListener('dragleave', e => { e.preventDefault(); zone.classList.remove('dragover'); });
-        zone.addEventListener('drop', e => {
-            e.preventDefault();
-            zone.classList.remove('dragover');
-            handleFiles(e.dataTransfer.files);
-        });
-
-function handleFiles(newFiles) {
-    const valid = ['application/pdf', 'image/jpeg', 'image/png'];
-    let rejected = [];
-    
-    Array.from(newFiles).forEach(f => {
-        if (!valid.includes(f.type)) {
-            rejected.push(`${f.name}: only PDF, JPG, PNG allowed`);
-        } else if (f.size > MAX_FILE_SIZE) {
-            rejected.push(`${f.name}: exceeds 10MB limit (${(f.size / 1024 / 1024).toFixed(1)}MB)`);
-        } else if (files.some(x => x.name === f.name && x.size === f.size)) {
-            // Skip duplicates silently
-        } else {
-            files.push(f);
+        zone.addEventListener('drop', e => { e.preventDefault(); zone.classList.remove('dragover'); handleFiles(e.dataTransfer.files); });
+        function handleFiles(newFiles) {
+            const valid = ['application/pdf', 'image/jpeg', 'image/png'];
+            let rejected = [];
+            Array.from(newFiles).forEach(f => {
+                if (!valid.includes(f.type)) rejected.push(f.name + ': only PDF, JPG, PNG allowed');
+                else if (f.size > MAX_FILE_SIZE) rejected.push(f.name + ': exceeds 10MB limit');
+                else if (!files.some(x => x.name === f.name && x.size === f.size)) files.push(f);
+            });
+            if (rejected.length > 0) alert('Some files were rejected:\n\n' + rejected.join('\n'));
+            updateFileList(); validateForm();
         }
-    });
-    
-    if (rejected.length > 0) {
-        alert('Some files were rejected:\n\n' + rejected.join('\n'));
-    }
-    
-    updateFileList();
-    validateForm();
-}
-
-        function removeFile(i) {
-            files.splice(i, 1);
-            updateFileList();
-            validateForm();
-        }
-
+        function removeFile(i) { files.splice(i, 1); updateFileList(); validateForm(); }
         function updateFileList() {
             const count = files.length;
             document.getElementById('file-count').textContent = count;
-            
             const fill = document.getElementById('counter-fill');
-            fill.style.width = Math.min(count / 12 * 100, 100) + '%';
+            fill.style.width = Math.min(count / TARGET_FILES * 100, 100) + '%';
             fill.className = 'counter-fill' + (count >= 12 ? ' good' : '');
-            
-            document.getElementById('counter-hint').textContent = count >= 12 ? 'Great! You have enough files' : 'Add ' + (12 - count) + ' more for best results';
-
-            document.getElementById('file-list').innerHTML = files.map((f, i) => `
-                <div class="file-item">
-                    <div class="file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/></svg></div>
-                    <div class="file-info">
-                        <div class="file-name">${f.name}</div>
-                        <div class="file-size">${(f.size / 1024).toFixed(1)} KB</div>
-                    </div>
-                    <button type="button" class="file-remove" onclick="removeFile(${i})"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
-                </div>
-            `).join('');
+            const hint = document.getElementById('counter-hint');
+            if (count >= TARGET_FILES) hint.textContent = 'Excellent! You have plenty of data';
+            else if (count >= 12) hint.textContent = 'Great! Add more for even better analysis';
+            else hint.textContent = 'Add ' + (12 - count) + ' more for best results';
+            document.getElementById('file-list').innerHTML = files.map((f, i) => '<div class="file-item"><div class="file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/></svg></div><div class="file-info"><div class="file-name">' + f.name + '</div><div class="file-size">' + (f.size / 1024).toFixed(1) + ' KB</div></div><button type="button" class="file-remove" onclick="removeFile(' + i + ')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>').join('');
         }
-
-        function validateForm() {
-            const email = document.getElementById('email-input');
-            document.getElementById('submit-btn').disabled = !(email.value && email.checkValidity() && files.length > 0);
-        }
-
-const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
-
-async function submitForm(e) {
-    e.preventDefault();
-    
-    // Check file sizes before uploading
-    for (const f of files) {
-        if (f.size > MAX_FILE_SIZE) {
-            alert(`File "${f.name}" is too large (${(f.size / 1024 / 1024).toFixed(1)}MB). Maximum size is 10MB per file.`);
-            return;
-        }
-    }
-    
-    const btn = document.getElementById('submit-btn');
-    btn.classList.add('loading');
-    btn.disabled = true;
-
-    const formData = new FormData();
-    formData.append('email', document.getElementById('email-input').value);
-    formData.append('participantId', participantId);
-    files.forEach(f => formData.append('bills', f));
-
-    try {
-        const res = await fetch('/api/submit', { method: 'POST', body: formData });
-        const data = await res.json();
-        if (data.success) goTo('thanks');
-        else alert(data.message || 'Upload failed. Please try again.');
-    } catch (err) {
-        alert('Upload failed. Please check your connection and try again.');
-    } finally {
-        btn.classList.remove('loading');
-        btn.disabled = false;
-    }
-}
-
-
-        function toggleHelp() {
-            document.getElementById('help-card').classList.toggle('open');
-        }
-
-        function updateHelpBtn() {
-            const consent = document.getElementById('help-consent').checked;
-            const email = document.getElementById('help-email');
-            document.getElementById('help-btn').disabled = !(consent && email.value && email.checkValidity());
-        }
-
-        async function submitHelp() {
-            const btn = document.getElementById('help-btn');
-            btn.disabled = true;
-            btn.textContent = 'Submitting...';
-
+        // function validateForm() { const email = document.getElementById('email-input'); document.getElementById('submit-btn').disabled = !(email.value && email.checkValidity() && files.length > 0); }
+	function validateForm() { document.getElementById('submit-btn').disabled = !(files.length > 0); }
+        // function getSurveyData() { return { zipCode: document.getElementById('zip-code').value, housingType: document.getElementById('housing-type').value, householdSize: document.getElementById('household-size').value, incomeBracket: document.getElementById('income-bracket').value || 'not-provided', utilityProvider: document.getElementById('utility-provider').value }; }
+	function getSurveyData() { return { email: document.getElementById('survey-email').value, zipCode: document.getElementById('zip-code').value, housingType: document.getElementById('housing-type').value, householdSize: document.getElementById('household-size').value, incomeBracket: document.getElementById('income-bracket').value || 'not-provided', utilityProvider: document.getElementById('utility-provider').value }; }
+        async function submitForm(e) {
+            e.preventDefault();
+            for (const f of files) { if (f.size > MAX_FILE_SIZE) { alert('File "' + f.name + '" is too large. Maximum size is 10MB per file.'); return; } }
+            const btn = document.getElementById('submit-btn');
+            btn.classList.add('loading'); btn.disabled = true;
+            const formData = new FormData();
+	    formData.append('email', document.getElementById('survey-email').value);
+            // formData.append('email', document.getElementById('email-input').value);
+            formData.append('participantId', participantId);
+            formData.append('surveyData', JSON.stringify(getSurveyData()));
+            files.forEach(f => formData.append('bills', f));
             try {
-                const res = await fetch('/api/request-help', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email: document.getElementById('help-email').value })
-                });
+                const res = await fetch('/api/submit', { method: 'POST', body: formData });
                 const data = await res.json();
-                if (data.success) goTo('thanks');
-                else alert('Error: ' + data.message);
-            } catch (err) {
-                alert('Request failed. Please try again.');
-            } finally {
-                btn.disabled = false;
-                btn.textContent = 'Request Assistance';
-            }
+                // if (data.success) { document.getElementById('followup-email').value = document.getElementById('email-input').value; goTo('thanks'); }
+		if (data.success) { document.getElementById('followup-email').value = document.getElementById('survey-email').value; goTo('thanks'); }
+                else alert(data.message || 'Upload failed. Please try again.');
+            } catch (err) { alert('Upload failed. Please check your connection and try again.'); }
+            finally { btn.classList.remove('loading'); btn.disabled = false; }
         }
-    // Gallery
+        function toggleHelp() { document.getElementById('help-card').classList.toggle('open'); }
+        function updateHelpBtn() { const consent = document.getElementById('help-consent').checked; const email = document.getElementById('help-email'); document.getElementById('help-btn').disabled = !(consent && email.value && email.checkValidity()); }
+        async function submitHelp() {
+            const btn = document.getElementById('help-btn'); btn.disabled = true; btn.textContent = 'Submitting...';
+            try {
+                const res = await fetch('/api/request-help', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: document.getElementById('help-email').value, surveyData: getSurveyData() }) });
+                const data = await res.json();
+                if (data.success) goTo('thanks'); else alert('Error: ' + data.message);
+            } catch (err) { alert('Request failed. Please try again.'); }
+            finally { btn.disabled = false; btn.textContent = 'Request Assistance'; }
+        }
+        function updateFollowupBtn() {
+            const checked = document.getElementById('followup-check').checked;
+            document.getElementById('followup-email-group').style.display = checked ? 'block' : 'none';
+            document.getElementById('followup-btn').style.display = checked ? 'inline-flex' : 'none';
+            if (checked) { const email = document.getElementById('followup-email'); document.getElementById('followup-btn').disabled = !(email.value && email.checkValidity()); }
+        }
+        async function submitFollowup() {
+            const btn = document.getElementById('followup-btn'); btn.disabled = true; btn.textContent = 'Submitting...';
+            try {
+                const res = await fetch('/api/followup-interest', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: document.getElementById('followup-email').value, participantId: participantId }) });
+                const data = await res.json();
+                if (data.success) { document.getElementById('followup-section').style.display = 'none'; document.getElementById('followup-success').classList.add('show'); }
+                else alert('Error: ' + data.message);
+            } catch (err) { alert('Request failed. Please try again.'); }
+            finally { btn.disabled = false; btn.textContent = 'Submit Interest'; }
+        }
+
+// Gallery
 const gallerySteps = [
     { img: '/static/step1.png', caption: 'Log in to your PSE&G account at nj.pseg.com' },
     { img: '/static/step2.png', caption: 'Click on "Bill Details" to view your billing history' },
-    { img: '/static/step3.png', caption: 'Click on "Billing and Payment History"' },
-    { img: '/static/step4.png', caption: 'Go to Billing Statements' },
-    { img: '/static/step5.png', caption: 'For each month available (12-24 past months), click View Bill, save the PDF files to your device, then upload below' }
+    { img: '/static/step3.png', caption: 'Select "View Bill" or "Download PDF" for each month' },
+    { img: '/static/step4.png', caption: 'Download bills for the past 12-24 months' },
+    { img: '/static/step5.png', caption: 'Save all files to your computer, then upload below' }
 ];
 let currentSlide = 0;
 
