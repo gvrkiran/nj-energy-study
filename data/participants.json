@@ -1,0 +1,73 @@
+{
+  "participants": [
+    {
+      "id": "cd5tw8dxbmk3ioi2m",
+      "email": "sa3sl@mail.com",
+      "submitted_at": "2026-01-06T23:28:14.503738",
+      "files_count": 1,
+      "files": [
+        {
+          "original": "Rates_Resident-2025.pdf",
+          "saved": "20260106_232814_Rates_Resident-2025.pdf",
+          "size": 177925
+        }
+      ],
+      "type": "self-upload"
+    },
+    {
+      "id": "0ova1t3svmk7iz7ak",
+      "email": "igg@tid.com",
+      "submitted_at": "2026-01-09T18:46:51.642670",
+      "files_count": 1,
+      "files": [
+        {
+          "original": "OpenMyBill.pdf",
+          "saved": "20260109_184651_638348_OpenMyBill.pdf",
+          "size": 1042421
+        }
+      ],
+      "type": "self-upload",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": "klwwx1z6rmk7j040k",
+      "email": "slro@si.coom",
+      "submitted_at": "2026-01-09T18:47:44.048507",
+      "files_count": 3,
+      "files": [
+        {
+          "original": "474091_1_En_5_Chapter_Author.pdf",
+          "saved": "20260109_184744_040731_474091_1_En_5_Chapter_Author.pdf",
+          "size": 601390
+        },
+        {
+          "original": "AAAI__4V__Evaluating_the_Contributions_of_Crowdsourced_and_Professional_Fact_checking.pdf",
+          "saved": "20260109_184744_043369_AAAI__4V__Evaluating_the_Contributions_of_Crowdsourced_and_Professional_Fact_checking.pdf",
+          "size": 260241
+        },
+        {
+          "original": "Gemini_-_Research_Study_Flow_Visualization_Request.pdf",
+          "saved": "20260109_184744_045954_Gemini_-_Research_Study_Flow_Visualization_Request.pdf",
+          "size": 20109
+        }
+      ],
+      "type": "self-upload",
+      "ip": "127.0.0.1"
+    },
+    {
+      "id": "gnkwv2hsemka8f3vs",
+      "email": "kaitlyn.rich@rutgers.edu",
+      "submitted_at": "2026-01-11T16:23:59.659066",
+      "files_count": 1,
+      "files": [
+        {
+          "original": "cf005bc8-88d1-4e0d-879e-c2869387b1d1.pdf",
+          "saved": "20260111_162359_650609_cf005bc8-88d1-4e0d-879e-c2869387b1d1.pdf",
+          "size": 1654089
+        }
+      ],
+      "type": "self-upload",
+      "ip": "127.0.0.1"
+    }
+  ]
+}
